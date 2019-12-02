@@ -11,6 +11,8 @@ $(function() {
     $("#findLocationForm").submit(function(event) {
         event.preventDefault();
         const location = $("#userLocationInput").val();    
+        const place = $("#userAttractionInput").val();
+
         if (!location) {
             if (navigator.geolocation) {
                 
@@ -44,6 +46,4 @@ $(function() {
             })();
         }
     });
-
-
 });
