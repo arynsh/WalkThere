@@ -3,6 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { CoordinatesFromAddress} from './coordinatesFromLocation';
+import loadGoogleMapsApi from 'load-google-maps-api';
 
 $(function() {
     let lat, lon;

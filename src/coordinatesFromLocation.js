@@ -1,9 +1,9 @@
-const API_KEY2 = '3a961f44a5bf40d0b167a7b118598b81';
+const API_KEY = process.env.API_KEY;
 
 export class CoordinatesFromAddress {
     async getCoordinates(address) {
         try {
-            let response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${API_KEY2}`);
+            let response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${API_KEY}`);
             let jsonifiedResponse = response.json();
             return jsonifiedResponse; 
         } catch(error) {

@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "walk-there",
-=======
-  "name": "DoctorLookup",
->>>>>>> e1a3cf4... init project
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,10 +18,6 @@
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "clean-webpack-plugin": "3.0.0",
     "css-loader": "^3.2.0",
-<<<<<<< HEAD
-=======
-    "dotenv-webpack": "^1.7.0",
->>>>>>> e1a3cf4... init project
     "eslint": "^6.6.0",
     "eslint-loader": "^3.0.2",
     "file-loader": "^4.2.0",
@@ -39,7 +31,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "load-google-maps-api": "^2.0.1",
+    "popper.js": "^1.15.0",
+    "yelp-fusion": "^3.0.0"
   }
 }

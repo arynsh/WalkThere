@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +6,7 @@
     </head>
     <body>
         <div class="container">
+          <div id="box">
             <h1 class="title">
                 Walk there
             </h1>
@@ -13,8 +15,13 @@
                     <label for="userLocationInput">Enter location:</label>
                     <input class="form-control" type="text" id="userLocationInput" placeholder="Leave empty to use your current location">
                 </div>
+                <div class="form-group">
+                    <label for="userAttractionInput">Where would you like to go? (restaurant, bar, etc)</label>
+                    <input class="form-control" type="text" id="userAttractionInput">
+                </div>
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
+          </div>
         </div>
     </body>
 </html>

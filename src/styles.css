@@ -46,3 +46,17 @@ li {
     background-color: #b3d9ff;
     font-size: 20px;
 }
+
+#box {
+    background-color: rgba(118,108,108, 0.5);
+    margin: 50px;
+    padding: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 30%;
+    margin: auto;
+}
