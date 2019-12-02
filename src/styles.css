@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
 body {
     background-image: url(./img/background.jpg);
     background-attachment: fixed;
@@ -16,11 +22,6 @@ form label {
     font-size: 30px;
 }
 
-form h2 {
-    text-decoration: underline;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
 .results {
     display: none;
@@ -30,43 +31,34 @@ form h2 {
     font-size: 20px;
 }
 
-ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    align-items: center;
-    justify-content: center;
-}
 
-li {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid black;
-    width: 400px;
-    background-color: #b3d9ff;
-    font-size: 20px;
-}
-
-#box {
+.box {
     background-color: rgba(118,108,108, 0.5);
-    margin: 50px;
-    padding: 50px;
+    margin: 0;
+    padding: 60px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 50%;
-    height: 30%;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .map {
-    height: 50%;
+    height: 35%;
+    width: 70%;
+    top: 30%;
+    left: 15%;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+
+
+.goUpForm {
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    width: 100%;
+}
+
+.goUpGroup {
+    display: inline-block;
+    width: 40%;
+}

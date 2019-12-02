@@ -7,8 +7,12 @@
     "env": {
       "es6": true,
       "browser": true,
+<<<<<<< HEAD
+      "jquery": true
+=======
       "jquery": true,
       "node": true
+>>>>>>> e1ae862c4af5d730065a7a73d381ccf3cf72a103
     },
     "rules": {
         "semi": 1,

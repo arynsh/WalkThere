@@ -15,7 +15,7 @@ $(function() {
 
         if (!location) {
             if (navigator.geolocation) {
-                
+
                 navigator.geolocation.getCurrentPosition(function(position) {
                     lat = position.coords.latitude;
                     lon=position.coords.longitude;
@@ -50,5 +50,8 @@ $(function() {
         $('.map').show();
         map = new Map();
         map.getMap(lat, lon);
+        $("#box").addClass("goUpForm");
+        $("#locationInput").addClass("goUpGroup");
+        $("#attractionInput").addClass("goUpGroup");
     }
 });
