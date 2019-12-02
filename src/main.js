@@ -10,10 +10,10 @@ $(function() {
 
     $("#findLocationForm").submit(function(event) {
         event.preventDefault();
-        const location = $("#userLocationInput").val();    
+        const location = $("#userLocationInput").val();
         if (!location) {
             if (navigator.geolocation) {
-                
+
                 navigator.geolocation.getCurrentPosition(function(position) {
                     lat = position.coords.latitude;
                     lon=position.coords.longitude;
@@ -45,5 +45,6 @@ $(function() {
         }
     });
 
+  });
 
-});
+// });

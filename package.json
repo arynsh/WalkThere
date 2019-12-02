@@ -31,11 +31,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
-    "jquery": "^3.4.1",
     "load-google-maps-api": "^2.0.1",
-    "popper.js": "^1.15.0",
     "yelp-fusion": "^3.0.0"
   }
 }

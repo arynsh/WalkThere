@@ -16,21 +16,27 @@ form label {
     font-size: 30px;
 }
 
-form h2 {
+/* form h2 {
     text-decoration: underline;
     text-align: center;
     margin-bottom: 20px;
-}
+} */
 
 .results {
     display: none;
 }
 
+/* #findDoctorByIssueForm, #findDoctorByNameForm, #findDoctorBySpecialityForm {
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+} */
+
 .btn {
     font-size: 20px;
 }
 
-ul {
+/* ul {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
@@ -47,16 +53,16 @@ li {
     font-size: 20px;
 }
 
+#specialitiesList {
+    margin-bottom: 20px;
+} */
+
 #box {
     background-color: rgba(118,108,108, 0.5);
-    margin: 50px;
-    padding: 50px;
+    margin: 0;
+    padding: 60px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 50%;
-    height: 30%;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
