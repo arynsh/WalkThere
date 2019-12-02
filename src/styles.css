@@ -1,0 +1,48 @@
+body {
+    background-image: url(./img/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.title {
+    text-align: center;
+    font-size: 50px;
+    font-variant: small-caps;
+    margin-bottom: 30px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+form h2 {
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.results {
+    display: none;
+}
+
+.btn {
+    font-size: 20px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    width: 400px;
+    background-color: #b3d9ff;
+    font-size: 20px;
+}
