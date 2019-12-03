@@ -70,11 +70,11 @@ $(function() {
             console.log(el);
             $("#results").append(`<li>${displayElementOfList(el)}</li>`);
         }
-        $(".results").show();
+        $("#results").show();
     }
 
     function displayElementOfList(element) {
-        return `<li>Name: ${element.name}</li>`
+        return `${element.name}`
     }
 
     function displayMap(lat, lon) {
