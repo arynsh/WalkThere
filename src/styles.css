@@ -101,3 +101,9 @@ li img {
     display: none
 }
 
+#icon {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    border: 1px solid black;
+}

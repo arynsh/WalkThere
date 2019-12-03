@@ -46,9 +46,16 @@ module.exports = {
         loader: "eslint-loader"
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg)$/,
         use: [
-            'file-loader',
+          {
+            loader: 'file-loader',
+            options:{
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img/'
+            }
+          }
         ],
       },
     ]
