@@ -14,7 +14,7 @@ body {
     text-align: center;
     font-size: 50px;
     font-variant: small-caps;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 form label {
@@ -22,9 +22,13 @@ form label {
     font-size: 30px;
 }
 
+li {
+    color: aliceblue;
+}
 
-.results {
+#results {
     display: none;
+    margin-top: 10%;
 }
 
 .btn {
@@ -44,9 +48,8 @@ form label {
 .map {
     height: 35%;
     width: 70%;
-    top: 30%;
     left: 15%;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 
 
