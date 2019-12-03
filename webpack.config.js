@@ -22,7 +22,10 @@ module.exports = {
       template: './src/index.html',
       inject: 'body'
     }),
-    new Dotenv()
+    new Dotenv(),
+    new CopyWebpackPlugin([
+      {from: 'src/img', to: 'img'}
+    ])
   ],
   module: {
     rules: [
