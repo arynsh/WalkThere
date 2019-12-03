@@ -35,7 +35,6 @@ form label {
 .box {
     background-color: rgba(118,108,108, 0.5);
     margin: 0;
-    padding: 60px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,6 +46,7 @@ form label {
     width: 70%;
     top: 30%;
     left: 15%;
+    margin-top: 10%;
 }
 
 
