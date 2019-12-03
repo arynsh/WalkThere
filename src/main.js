@@ -66,16 +66,22 @@ $(function() {
     }
 
     function displayList(list) {
+        $(".resultBox").show();
         $("#results").empty();
         for (let i=0; i< list.length; i++) {
             const el = list[i];
             $("#results").append(`<li>${displayElementOfList(el)}</li>`);
         }
-        $("#results").show();
     }
 
     function displayElementOfList(element) {
-        return `${element.name}`
+        return `${element.name} 
+        <div class='info'>
+            Address: ${element.address}<br>
+            Phone: ${element.phone}<br>
+            Rating: ${element.rating}<br>
+            <img src=${element.image} alt=${element.name}>
+        </div>`
     }
 
     function displayMap(lat, lon, list) {
@@ -88,6 +94,6 @@ $(function() {
     }
 
     $(".resultBox").click(function(event) {
-        console.log(event.target);
+        $(event.target).children("div").toggle();
     })
 });

@@ -28,6 +28,8 @@ export class Attractions {
                     currentResult['phone'] = element['phone'];
                     currentResult['coordinates'] = element['coordinates'];
                     currentResult['distance'] = element['distance'];
+                    currentResult['rating'] = element['rating'];
+                    currentResult["image"] = element['image_url'];
                     resultArray.push(currentResult);
                 }
             }).catch(e => {
