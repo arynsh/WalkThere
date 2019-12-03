@@ -50,7 +50,8 @@ $(function() {
     function display(lat, lon, place) {
         getListOfAttractions(lat,lon,place).then(function(response) {
             displayList(response);
-            displayMap(lat, lon);
+            displayMap(lat, lon, response);
+
         })
     }
 
@@ -65,6 +66,7 @@ $(function() {
     }
 
     function displayList(list) {
+        $("#results").empty();
         for (let i=0; i< list.length; i++) {
             const el = list[i];
             console.log(el);
@@ -77,10 +79,10 @@ $(function() {
         return `<li>Name: ${element.name}</li>`
     }
 
-    function displayMap(lat, lon) {
+    function displayMap(lat, lon, list) {
         $('.map').show();
         map = new Map();
-        map.getMap(lat, lon);
+        map.getMap(lat, lon, list);
         $("#box").addClass("goUpForm");
         $("#locationInput").addClass("goUpGroup");
         $("#attractionInput").addClass("goUpGroup");
