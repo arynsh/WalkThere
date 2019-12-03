@@ -70,7 +70,7 @@ $(function() {
         $("#results").empty();
         for (let i=0; i< list.length; i++) {
             const el = list[i];
-            $("#results").append(`<li>${displayElementOfList(el)}</li>`);
+            $("#results").append(`<li><button class='btn btn-secondary'>${displayElementOfList(el)}</button></li>`);
         }
     }
 

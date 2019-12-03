@@ -34,6 +34,8 @@ li img {
 
 #results {
     margin: 10px;
+    text-align: center;
+    list-style-position: inside;
 }
 
 .btn {
@@ -73,7 +75,6 @@ li img {
     display: none;
     position: relative;
     top: 20%;
-    background-color: rgba(118,108,108, 0.7);
     width: 80%;
     left: 10%;
     padding: 10px;
@@ -99,3 +100,4 @@ li img {
 .info {
     display: none
 }
+
