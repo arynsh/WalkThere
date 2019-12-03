@@ -69,7 +69,6 @@ $(function() {
         $("#results").empty();
         for (let i=0; i< list.length; i++) {
             const el = list[i];
-            console.log(el);
             $("#results").append(`<li>${displayElementOfList(el)}</li>`);
         }
         $("#results").show();
@@ -87,4 +86,8 @@ $(function() {
         $("#locationInput").addClass("goUpGroup");
         $("#attractionInput").addClass("goUpGroup");
     }
+
+    $(".resultBox").click(function(event) {
+        console.log(event.target);
+    })
 });

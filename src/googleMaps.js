@@ -12,7 +12,7 @@ export class Map {
                     lat: latitude,
                     lng: longitude
                 },
-                zoom: 12
+                zoom: 15
             });
             let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let labelIndex = 0;
@@ -28,7 +28,6 @@ export class Map {
                 });
                 marker.setMap(currentMap);
             }
-
 
         });
 
