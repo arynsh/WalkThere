@@ -234,30 +234,6 @@ $(function() {
     firebase.auth().signOut();
   });
 
-  // //save contact
-  // $('#contactForm').on('submit', function( event ) {  
-  //   event.preventDefault();
-  //   if( auth != null ){
-  //     if( $('#name').val() != '' || $('#email').val() != '' ){
-  //       placesRef.child(auth.uid)
-  //         .push({
-  //           name: $('#name').val(),
-  //           email: $('#email').val(),
-  //           location: {
-  //             city: $('#city').val(),
-  //             state: $('#state').val(),
-  //             zip: $('#zip').val()
-  //           }
-  //         })
-  //         document.contactForm.reset();
-  //     } else {
-  //       alert('Please fill at-lease name or email!');
-  //     }
-  //   } else {
-  //     //inform user to login
-  //   }
-  // });
-
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       auth = user;
@@ -278,11 +254,22 @@ $(function() {
       // No user is signed in.
       $('body').removeClass('auth-true').addClass('auth-false');
       $(".addButton").hide();
-      //auth && placesRef.child(auth.uid).off('child_added', onChildAdd);
+       auth && placesRef.child(auth.uid).off('child_added', onChildAdd);
       $('#savedPlacesList').html('');
       auth = null;
     }
   });
+
+  $("#savedPlacesList").click(function(event) {
+    if ($(event.target).is(":button")) {
+      let element = $(event.target).parent().parent();
+      console.log(element);
+      console.log(placesRef.child(auth.uid).child(element.attr("id")));
+      element.remove();
+      placesRef.child(auth.uid).child(element.attr("id")).remove();
+    }
+  })
+
 });
 
   function onChildAdd (snap) {
@@ -301,6 +288,7 @@ $(function() {
         + '<p class="card-text">Rating: '
           + place.rating
         + '</p>'
+        + '<button class="btn btn-danger deleteButton">Delete</button>'
 
         // + '<a href="#" class="card-link">Card link</a>'
         // + '<a href="#" class="card-link">Another link</a>'
