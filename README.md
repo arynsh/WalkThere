@@ -22,12 +22,14 @@ These instructions will get you a copy of the project up and running on your loc
 Create a `.env` file in the root of your project and insert your key/value pairs in the following format of `KEY=VALUE`:
 
 ```sh
-API_KEY=YOUR_KEY
+API_KEY=YOUR_KEY( There are two API one for google map and second one for Yelp API)
 ```
+After cloning the project:
+1. npm install
+2. npm install yelp-fusion --save
+3. npm install --save load-google-maps-api
+4. 1 Step: open => "node_module" folder in your project; 2 Step: drop down list and open => "yelpfusion" folder; 3 Step: open "lib" folder; 4 Step: open file        "index.js"; 5 Step: modify each original url 'https://api.yelp.com/v3/events/featured' with new one 'https://cors-anywhere.herokuapp.com/api.yelp.com/v3/events/featured'
 
-Using Node, install the project dependencies:
-```
-npm install
 ```
 
 Once the dependencies are installed (it will take a few minutes), your project is ready to go.:

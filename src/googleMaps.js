@@ -6,6 +6,7 @@ API_KEY_MAP = 'AIzaSyB-Mgt8OR12z9WUmehS8HIQoCq_ItoMV_U';
 export class Map {
 
     async getMap(latitude, longitude, list) {
+        console.log("list",list);
         loadGoogleMapsApi({'key': API_KEY_MAP}).then(function (googleMaps) {
             let currentMap = new googleMaps.Map(document.querySelector('.map'), {
                 center: {
@@ -23,9 +24,16 @@ export class Map {
                         lat: list[i].coordinates.latitude,
                         lng: list[i].coordinates.longitude
                     },
+                    icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
                     title: list[i].name,
                     label: labels[labelIndex++ % labels.length]
                 });
+                let infoForMarker = new googleMaps.InfoWindow({
+                    content:`<h4>${list[i].name}</h4>`
+                });
+                marker.addListener('click',function(){
+                    infoForMarker.open(currentMap,marker);
+                })
                 marker.setMap(currentMap);
             }
 
