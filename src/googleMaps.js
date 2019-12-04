@@ -6,7 +6,6 @@ API_KEY_MAP = 'AIzaSyB-Mgt8OR12z9WUmehS8HIQoCq_ItoMV_U';
 export class Map {
 
     async getMap(latitude, longitude, list) {
-        console.log("list",list);
         loadGoogleMapsApi({'key': API_KEY_MAP}).then(function (googleMaps) {
             let currentMap = new googleMaps.Map(document.querySelector('.map'), {
                 center: {

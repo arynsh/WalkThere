@@ -72,11 +72,33 @@ $(function() {
         $("#results").empty();
         for (let i=0; i< list.length; i++) {
             const el = list[i];
-            $("#results").append(`<li><button class='btn btn-secondary'>${displayElementOfList(el)}</button></li>`);
+            $("#results").append(`<li id=${i}><button class='btn btn-secondary'>${displayElementOfList(el)}</button></li>`);
         }
+        if (auth != null) {
+          $(".addButton").show();
+        }
+
         $(".addButton").click(function(event) {
-          //console.log("clicked", event.target.parent());
-        })
+          const data = list["clicked", $(event.target).parent().attr('id')];
+          console.log(data);
+          if( auth != null ){
+              placesRef.child(auth.uid)
+                .push({
+                  name: data.name,
+                  address: data.address,
+                  coords: {
+                    latitude: data.coordinates.latitude,
+                    longitude: data.coordinates.longitude
+                  },
+                  phone: data.phone,
+                  id: data.id,
+                  image: data.image,
+                  rating: data.rating
+                })
+          } else {
+            //inform user to login
+          }
+        });
     }
 
     function displayElementOfList(element) {
@@ -92,12 +114,13 @@ $(function() {
     }
 
     function displayMap(lat, lon, list) {
-        $('.map').show();
-        map = new Map();
-        map.getMap(lat, lon, list);
-        $("#box").addClass("goUpForm");
-        $("#locationInput").addClass("goUpGroup");
-        $("#attractionInput").addClass("goUpGroup");
+      console.log($(".map"));
+      $('.map').show();
+      map = new Map();
+      map.getMap(lat, lon, list);
+      $("#box").addClass("goUpForm");
+      $("#locationInput").addClass("goUpGroup");
+      $("#attractionInput").addClass("goUpGroup");
     }
 
     // show/hide info about place
@@ -121,7 +144,7 @@ $(function() {
     //create firebase references
     var Auth = firebase.auth(); 
     var dbRef = firebase.database();
-    var contactsRef = dbRef.ref('contacts');
+    var placesRef = dbRef.ref('places');
     var usersRef = dbRef.ref('users');
     var auth = null;
     // Get a reference to the database service
@@ -141,7 +164,7 @@ $(function() {
     var passwords = {
       password : $('#registerPassword').val(), //get the pass from Form
       cPassword : $('#registerConfirmPassword').val(), //get the confirmPass from Form
-    }
+    };
     if( data.email != '' && passwords.password != ''  && passwords.cPassword != '' ){
       if( passwords.password == passwords.cPassword ){
         //create the user
@@ -152,7 +175,7 @@ $(function() {
               let user = firebase.auth().currentUser;
             return user.updateProfile({
               displayName: data.firstName + ' ' + data.lastName
-            })
+            });
           })
           .then(function(){
             let user = firebase.auth().currentUser;
@@ -162,19 +185,19 @@ $(function() {
             usersRef.child(user.uid).set(data)
               .then(function(){
                 console.log("User Information Saved:", user.uid);
-              })
-            $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
+              });
+            $('#messageModalLabel').html(spanText('Success!', ['center', 'success']));
             
             $('#messageModal').modal('hide');
             $('.user-name').text(user.displayName);
           })
           .catch(function(error){
             console.log("Error creating user:", error);
-            $('#messageModalLabel').html(spanText('ERROR: '+error.code, ['danger']))
+            $('#messageModalLabel').html(spanText('ERROR: '+error.code, ['danger']));
           });
       } else {
         //password and confirm password didn't match
-        $('#messageModalLabel').html(spanText("ERROR: Passwords didn't match", ['danger']))
+        $('#messageModalLabel').html(spanText("ERROR: Passwords didn't match", ['danger']));
       }
     }  
   });
@@ -195,19 +218,20 @@ $(function() {
       firebase.auth().signInWithEmailAndPassword(data.email, data.password)
         .then(function(authData) {
           auth = authData;
-          $('#messageModalLabel').html(spanText('Success!', ['center', 'success']))
+          $('#messageModalLabel').html(spanText('Success!', ['center', 'success']));
           $('#messageModal').modal('hide');
+          $(".addButton").show();
         })
         .catch(function(error) {
           console.log("Login Failed!", error);
-          $('#messageModalLabel').html(spanText('ERROR: '+error.code, ['danger']))
+          $('#messageModalLabel').html(spanText('ERROR: '+error.code, ['danger']));
         });
     }
   });
 
   $('#logout').on('click', function(e) {
     e.preventDefault();
-    firebase.auth().signOut()
+    firebase.auth().signOut();
   });
 
   // //save contact
@@ -215,7 +239,7 @@ $(function() {
   //   event.preventDefault();
   //   if( auth != null ){
   //     if( $('#name').val() != '' || $('#email').val() != '' ){
-  //       contactsRef.child(auth.uid)
+  //       placesRef.child(auth.uid)
   //         .push({
   //           name: $('#name').val(),
   //           email: $('#email').val(),
@@ -235,7 +259,6 @@ $(function() {
   // });
 
   firebase.auth().onAuthStateChanged(function(user) {
-    console.log(user, firebase.auth().currentUser);
     if (user) {
       auth = user;
       $('body').removeClass('auth-false').addClass('auth-true');
@@ -250,37 +273,40 @@ $(function() {
         }
         $(".addButton").show();
       });
-      //.child(user.uid).on('child_added', onChildAdd);
+      placesRef.child(user.uid).on('child_added', onChildAdd);
     } else {
       // No user is signed in.
       $('body').removeClass('auth-true').addClass('auth-false');
       $(".addButton").hide();
-      //auth && contactsRef.child(auth.uid).off('child_added', onChildAdd);
-      $('#contacts').html('');
+      //auth && placesRef.child(auth.uid).off('child_added', onChildAdd);
+      $('#savedPlacesList').html('');
       auth = null;
     }
   });
 });
 
-  // function onChildAdd (snap) {
-  //   $('#contacts').append(contactHtmlFromObject(snap.key, snap.val()));
-  // }
+  function onChildAdd (snap) {
+    $('#savedPlacesList').append(contactHtmlFromObject(snap.key, snap.val()));
+  }
  
-  // //prepare contact object's HTML
-  // function contactHtmlFromObject(key, contact){
-  //   return '<div class="card contact" style="width: 18rem;" id="'+key+'">'
-  //     + '<div class="card-body">'
-  //       + '<h5 class="card-title">'+contact.name+'</h5>'
-  //       + '<h6 class="card-subtitle mb-2 text-muted">'+contact.email+'</h6>'
-  //       + '<p class="card-text" title="' + contact.location.zip+'">'
-  //         + contact.location.city + ', '
-  //         + contact.location.state
-  //       + '</p>'
-  //       // + '<a href="#" class="card-link">Card link</a>'
-  //       // + '<a href="#" class="card-link">Another link</a>'
-  //     + '</div>'
-  //   + '</div>';
-  // }
+  //prepare contact object's HTML
+  function contactHtmlFromObject(key, place){
+    return '<div class="card contact" id="'+key+'">'
+      + '<div class="card-body">'
+        + '<h5 class="card-title">'+place.name+'</h5>'
+         + '<h6 class="card-subtitle mb-2 text-muted">'+place.address+'</h6>'
+         + '<p class="card-text">'
+          + place.phone
+        + '</p>'
+        + '<p class="card-text">Rating: '
+          + place.rating
+        + '</p>'
+
+        // + '<a href="#" class="card-link">Card link</a>'
+        // + '<a href="#" class="card-link">Another link</a>'
+      + '</div>'
+    + '</div>';
+  }
 
   function spanText(textStr, textClasses) {
     var classNames = textClasses.map(c => 'text-'+c).join(' ');
