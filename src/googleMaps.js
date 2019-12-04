@@ -17,6 +17,16 @@ export class Map {
             });
             let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let labelIndex = 0;
+            //current position
+            let marker = new googleMaps.Marker({
+                position: {
+                    lat: latitude,
+                    lng: longitude
+                },
+                title: "Your Position",
+                label: 'YOU'
+            });
+            marker.setMap(currentMap);
 
             for (let i=0; i< list.length; i++) {
                 let marker = new googleMaps.Marker({
