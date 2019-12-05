@@ -37,8 +37,25 @@ export class Map {
                     title: list[i].name,
                     label: labels[labelIndex++ % labels.length]
                 });
+                let ratingone;
+                if(list[i].rating == "5"){
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/fivestarrating.png"/></div>';
+                }
+                if(list[i].rating == "4"){
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/fourstarrating.png"/></div>';
+                }
+                if(list[i].rating == "3"){
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/threestarrating.png"/></div>';
+                }
+                if(list[i].rating == "2"){
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/twostarrating.png"/></div>';
+                }
+                if(list[i].rating == "1"){
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/onestarrating.png"/></div>';
+                }
                 let infoForMarker = new googleMaps.InfoWindow({
-                    content:`<h4>${list[i].name}</h4>`
+                
+                    content:`<h4>${list[i].name}</h4> ${ratingone}`
                 });
                 marker.addListener('click',function(){
                     infoForMarker.open(currentMap,marker);
