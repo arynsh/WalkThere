@@ -39,34 +39,19 @@ export class Map {
                 });
                 let ratingone;
                 if(list[i].rating == "5"){
-                    ratingone = '<div><img style="height:40px;width:150px;" src="./img/fivestarrating.png"/></div>';
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/fivestarrating.png"/></div>';
                 }
                 if(list[i].rating == "4"){
-                    ratingone = '<div><img style="height:40px;width:150px;" src="./img/fourstarrating.png"/></div>';
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/fourstarrating.png"/></div>';
                 }
                 if(list[i].rating == "3"){
-                    ratingone = '<div><img style="height:40px;width:150px;" src="./img/threestarrating.png"/></div>';
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/threestarrating.png"/></div>';
                 }
                 if(list[i].rating == "2"){
-                    ratingone = '<div><img style="height:40px;width:150px;" src="./img/twostarrating.png"/></div>';
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/twostarrating.png"/></div>';
                 }
                 if(list[i].rating == "1"){
-                    ratingone = '<div><img style="height:40px;width:150px;" src="./img/onestarrating.png"/></div>';
-                }
-                if(list[i].rating == ".5"){
-                    ratingone = '<div><img style="height:30px;width:150px;" src="./img/halfstar.png"/></div>';
-                }
-                if(list[i].rating == "1.5"){
-                    ratingone = '<div><img style="height:30px;width:150px;" src="./img/oneandhalfstar.png"/></div>';
-                }
-                if(list[i].rating == "2.5"){
-                    ratingone = '<div><img style="height:30px;width:150px;" src="./img/twoandhalfstar.png"/></div>';
-                }
-                if(list[i].rating == "3.5"){
-                    ratingone = '<div><img style="height:30px;width:150px;" src="./img/threeandhalfstar.png"/></div>';
-                }
-                if(list[i].rating == "4.5"){
-                    ratingone = '<div><img style="height:30px;width:150px;" src="./img/fourandhalfstar.png"/></div>';
+                    ratingone = '<div><img style="height:50px;width:150px;" src="./img/onestarrating.png"/></div>';
                 }
                 let infoForMarker = new googleMaps.InfoWindow({
                 
