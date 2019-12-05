@@ -201,3 +201,25 @@ header h1 {
 #registerForm {
     color: black;
 }
+
+.row {
+  color: black;
+  display: none;
+}
+
+#row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.top {
+  transform: translate(-35px, -270px)
+}
+.place {
+  width: 400px;
+}
+
+.content {
+ padding: 35px;
+}

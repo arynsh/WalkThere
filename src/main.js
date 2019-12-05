@@ -6,6 +6,8 @@ import { CoordinatesFromAddress} from './coordinatesFromLocation';
 import { Map } from './googleMaps';
 import {Attractions} from './yelp';
 import firebase from 'firebase';
+import '../node_modules/materialize-css/dist/css/materialize.min.css';
+import '../node_modules/materialize-css/dist/js/materialize.min.js';
 
 $(function() {
     let lat, lon, map;
@@ -69,18 +71,38 @@ $(function() {
 
     function displayList(list) {
         $(".resultBox").show();
-        $("#results").empty();
+        $(".card-content").empty();
+        $(".card-image").empty();
+        let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let labelIndex = 0;
         for (let i=0; i< list.length; i++) {
             const el = list[i];
-            $("#results").append(`<li id=${i}><button class='btn btn-secondary'>${displayElementOfList(el)}</button></li>`);
+            $(".row").show();
+            $("#row").append(`
+            <div class="place" id=${i}>
+              <div class="card results">
+                <div class="card-image">
+                  <img src="${el.image}" width="320px" height="270px">
+                  <span class="card-title">${el.name}</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red addButton"><i class="material-icons">add</i></a>
+                  <a class="btn-floating halfway-fab waves-effect waves-light blue left top"><i class="material-icons">${labels[labelIndex++ % labels.length]}</i></a>
+                </div>
+                <div class="card-text content">
+                  ${displayElementOfList(el)}
+                </div> 
+               </div>
+             </div>`);  
+
+            
+          
         }
         if (auth != null) {
           $(".addButton").show();
         }
 
         $(".addButton").click(function(event) {
-          const data = list["clicked", $(event.target).parent().attr('id')];
-          console.log(data);
+          const data = list[$(event.target).parent().parent().parent().parent().attr('id')];
+          console.log($(event.target).parent().parent().parent().parent().attr("id"));
           if( auth != null ){
               placesRef.child(auth.uid)
                 .push({
@@ -102,15 +124,11 @@ $(function() {
     }
 
     function displayElementOfList(element) {
-        return `${element.name} 
-        <div class='info'>
+        return `
             Address: ${element.address}<br>
             Phone: ${element.phone}<br>
             Rating: ${element.rating}<br>
-            <img src=${element.image} alt=${element.name}>
-            <br>
-            <button class="btn btn-info addButton">Add place to your list</button>
-        </div>`;
+           `;
     }
 
     function displayMap(lat, lon, list) {

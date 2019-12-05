@@ -38,6 +38,7 @@
     "get-google-fonts": "^1.2.1",
     "jquery": "^3.4.1",
     "load-google-maps-api": "^2.0.1",
+    "materialize-css": "^1.0.0-rc.2",
     "mysql": "^2.17.1",
     "popper.js": "^1.15.0",
     "yelp-fusion": "^3.0.0"

@@ -10,7 +10,7 @@ export class Attractions {
             latitude: lat,
             longitude: lon,
             radius: 1000,
-            limit: 10
+            limit: 9
         };
 
         try {
