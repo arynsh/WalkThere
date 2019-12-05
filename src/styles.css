@@ -200,3 +200,7 @@ padding: 35px;
 #userLocationInput {
   color: white
 }
+
+#userLocationInput::placeholder {
+  color: white
+}
