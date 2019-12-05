@@ -1,225 +1,198 @@
-  
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 body {
-    background-image: url(./img/background.jpg);
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url(./img/background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .title {
-    text-align: center;
-    font-size: 50px;
-    font-family: 'Yellowtail', cursive;
-    color: aliceblue;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Yellowtail', cursive;
+  color: aliceblue;
 }
 
 
 form label {
-  font-family: 'Raleway', sans-serif;
-    color: aliceblue;
-    font-weight: bold;
-    font-size: 30px;
+font-family: 'Raleway', sans-serif;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 li {
-    color: aliceblue;
-    margin: 10px;
-    cursor: pointer
+  color: aliceblue;
+  margin: 10px;
+  cursor: pointer
 }
 
 li img {
-    width: 300px;
+  width: 300px;
 }
 #results {
-    margin: 10px;
-    text-align: center;
-    list-style-position: inside;
+  margin: 10px;
+  text-align: center;
+  list-style-position: inside;
 }
 
 .btn {
-    font-size: 20px;
-    
+  font-size: 20px;
+  
 }
 
 
 .box {
-    background-color: rgba(118,108,108, 0.5);
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 34px;
+  background-color: rgba(118,108,108, 0.5);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 34px;
 }
 
 .map {
-    position: relative;
-    height: 35%;
-    width: 70%;
-    left: 15%;
-    top: 50px;
+  position: relative;
+  height: 35%;
+  width: 70%;
+  left: 15%;
+  top: 50px;
 }
 
 .goUpForm {
-    position: relative;
-    *transform: translate(-50%, 0%);
-    width: 100%;
-    top: 110px;
+  position: relative;
+  transform: translate(-50%, 0%);
+  width: 100%;
 }
 
 .goUpGroup {
-    display: inline-block;
-    width: 40%;
+  display: inline-block;
+  width: 40%;
 }
 
 .resultBox {
-    display: none;
-    position: relative;
-    width: 80%;
-    left: 10%;
-    padding: 10px;
-    top: 50px;
+  display: none;
+  position: relative;
+  width: 80%;
+  left: 10%;
+  padding: 10px;
+  margin-top: 100px;
 }
 
 @media (max-width: 500px) {
-    .map {
-        top: 25%;
-    }
+  .map {
+      top: 25%;
+  }
 
-    .resultBox {
-        top: 30%
-    }
+  .resultBox {
+      top: 30%
+  }
 }
 
 @media (max-height: 850px) {
   .map {
-    top: 35%;
-  }
-}
-
-@media (max-width: 850px) {
-  .goUpForm {
-    top: 135px; 
-  }
-}
-
-@media (max-width: 565px) {
-  .goUpForm {
-    top: 156px; 
-  }
-}
-
-@media (max-width: 465px) {
-  .goUpForm {
-    top: 177px; 
-  }
-
-  .map {
-    top: 0px;
-  }
-
-  .resultBox {
-    top: 20px;
+      top: 35%;
   }
 }
 
 .info {
-    display: none
+  display: none
 }
+
 
 
 /* authentification */
 
 .control-label {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 header h1 {
-    display: inline-block;
-    margin: 10px 0;
-  }
-  header + hr {
-    margin: 10px 0;
-  }
-  #places p, 
-  #places p.lead{
-    margin: 0;
-  }
-  .userAuth {
-    display: block;
-    margin: 20px 0 0;
-    float: right;
-  }
-  .modal-header:last-child{
-    border-bottom: 0;
-  }
-  .card {
-    display: block;
-    margin: 1em;
-    max-width: calc(100% - 2em);
-  }
-  #places {
-    margin-left: -1em;
-    margin-right: -1em;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .user-info {
-    display: inline-block;
-    margin: 0 0.5em;
-  }
-  .user-info img{
-    display: inline-block;
-    max-width: 2em;
-  }
-  
-  .auth-true .authenticated,
-  .auth-false .unauthenticated {
-    display: block;
-  }
-  .auth-true .unauthenticated,
-  .auth-false .authenticated {
-    display: none;
-  }
-  
+  display: inline-block;
+  margin: 10px 0;
+}
+header + hr {
+  margin: 10px 0;
+}
+#places p, 
+#places p.lead{
+  margin: 0;
+}
+.userAuth {
+  display: block;
+  margin: 20px 0 0;
+  float: right;
+}
+.modal-header:last-child{
+  border-bottom: 0;
+}
+.card {
+  display: block;
+  margin: 1em;
+  max-width: calc(100% - 2em);
+}
+#places {
+  margin-left: -1em;
+  margin-right: -1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-info {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.user-info img{
+  display: inline-block;
+  max-width: 2em;
+}
+
+.auth-true .authenticated,
+.auth-false .unauthenticated {
+  display: block;
+}
+.auth-true .unauthenticated,
+.auth-false .authenticated {
+  display: none;
+}
+
 #icon {
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    border: 1px solid black;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  border: 1px solid black;
 }
 
 .addButton {
-  display: none;
+display: none;
 }
 
 #registerForm {
-    color: black;
+  color: black;
 }
 
 .row {
-  color: black;
-  display: none;
+color: black;
+display: none;
 }
 
 #row{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 }
 
 .top {
-  transform: translate(-35px, -270px)
+transform: translate(-35px, -270px)
 }
 .place {
-  width: 400px;
+width: 400px;
 }
 
 .content {
- padding: 35px;
+padding: 35px;
 }
