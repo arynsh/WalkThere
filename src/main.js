@@ -94,7 +94,7 @@ $(function() {
                   id: data.id,
                   image: data.image,
                   rating: data.rating
-                })
+                });
           } else {
             //inform user to login
           }
@@ -147,8 +147,6 @@ $(function() {
     var placesRef = dbRef.ref('places');
     var usersRef = dbRef.ref('users');
     var auth = null;
-    // Get a reference to the database service
-    var database = firebase.database();
 
      //Register
   $('#registerForm').on('submit', function (e) {
@@ -169,16 +167,16 @@ $(function() {
       if( passwords.password == passwords.cPassword ){
         //create the user
         
-        firebase.auth()
+        Auth
           .createUserWithEmailAndPassword(data.email, passwords.password)
           .then(function() {
-              let user = firebase.auth().currentUser;
+              let user = Auth.currentUser;
             return user.updateProfile({
               displayName: data.firstName + ' ' + data.lastName
             });
           })
           .then(function(){
-            let user = firebase.auth().currentUser;
+            let user = Auth.currentUser;
             //now user is needed to be logged in to save data
             auth = user;
             //now saving the profile data
@@ -215,7 +213,7 @@ $(function() {
         email: $('#loginEmail').val(),
         password: $('#loginPassword').val()
       };
-      firebase.auth().signInWithEmailAndPassword(data.email, data.password)
+      Auth.signInWithEmailAndPassword(data.email, data.password)
         .then(function(authData) {
           auth = authData;
           $('#messageModalLabel').html(spanText('Success!', ['center', 'success']));
@@ -231,15 +229,14 @@ $(function() {
 
   $('#logout').on('click', function(e) {
     e.preventDefault();
-    firebase.auth().signOut();
+    Auth.signOut();
   });
 
-  firebase.auth().onAuthStateChanged(function(user) {
+  Auth.onAuthStateChanged(function(user) {
     if (user) {
       auth = user;
-      $('body').removeClass('auth-false').addClass('auth-true');
+      $('.auth').removeClass('auth-false').addClass('auth-true');
       usersRef.child(user.uid).once('value').then(function (data) {
-        var info = data.val();
         if(user.displayName) {
           $('.user-info img').hide();
           $('.user-name').text(user.displayName);
@@ -252,7 +249,7 @@ $(function() {
       placesRef.child(user.uid).on('child_added', onChildAdd);
     } else {
       // No user is signed in.
-      $('body').removeClass('auth-true').addClass('auth-false');
+      $('.auth').removeClass('auth-true').addClass('auth-false');
       $(".addButton").hide();
        auth && placesRef.child(auth.uid).off('child_added', onChildAdd);
       $('#savedPlacesList').html('');
@@ -268,7 +265,7 @@ $(function() {
       element.remove();
       placesRef.child(auth.uid).child(element.attr("id")).remove();
     }
-  })
+  });
 
 });
 

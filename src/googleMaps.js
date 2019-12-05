@@ -59,7 +59,7 @@ export class Map {
                 });
                 marker.addListener('click',function(){
                     infoForMarker.open(currentMap,marker);
-                })
+                });
                 marker.setMap(currentMap);
             }
 

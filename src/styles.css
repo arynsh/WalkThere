@@ -67,8 +67,9 @@ li img {
 
 .goUpForm {
     position: relative;
-    transform: translate(-50%, 0%);
+    *transform: translate(-50%, 0%);
     width: 100%;
+    top: 110px;
 }
 
 .goUpGroup {
@@ -82,7 +83,7 @@ li img {
     width: 80%;
     left: 10%;
     padding: 10px;
-    margin-top: 100px;
+    top: 50px;
 }
 
 @media (max-width: 500px) {
@@ -96,15 +97,40 @@ li img {
 }
 
 @media (max-height: 850px) {
-    .map {
-        top: 35%;
-    }
+  .map {
+    top: 35%;
+  }
+}
+
+@media (max-width: 850px) {
+  .goUpForm {
+    top: 135px; 
+  }
+}
+
+@media (max-width: 565px) {
+  .goUpForm {
+    top: 156px; 
+  }
+}
+
+@media (max-width: 465px) {
+  .goUpForm {
+    top: 177px; 
+  }
+
+  .map {
+    top: 0px;
+  }
+
+  .resultBox {
+    top: 20px;
+  }
 }
 
 .info {
     display: none
 }
-
 
 
 /* authentification */
