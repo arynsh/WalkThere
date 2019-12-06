@@ -1,5 +1,4 @@
 let API_KEY = process.env.API_KEY_YELP;
-API_KEY  = 'DOjk8yslMwaED67UzeXSK5kOl32EnAVOh9Civ7EW31FhZhII0nn6SLEyufoVlHO4K3LV5_4Snb576BjCPpxsaYEzJCWn_hcX44BHftwVD8im7KD7Ed2LL1fJBGjlXXYx';
 import yelp from 'yelp-fusion';
 const client = yelp.client(API_KEY);
 

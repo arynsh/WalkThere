@@ -47,7 +47,7 @@ li img {
 
 
 .box {
-  background-color: rgba(118,108,108, 0.5);
+  background-color: rgba(118,108,108, 0.7);
   margin: 0;
   position: absolute;
   top: 50%;
@@ -168,7 +168,7 @@ header + hr {
 }
 
 .addButton {
-display: none;
+  display: none;
 }
 
 #registerForm {

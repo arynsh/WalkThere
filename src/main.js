@@ -55,6 +55,7 @@ $(function() {
     function display(lat, lon, place) {
         getListOfAttractions(lat,lon,place).then(function(response) {
             displayList(response);
+            $('.addButton').hide();
             displayMap(lat, lon, response);
         });
     }
@@ -148,7 +149,7 @@ $(function() {
 
       //initialize the firebase app
     var config = {
-        apiKey: "AIzaSyCsi7ACAdL_T2eAywfLldwSvQ1YnqCV8e0",
+        apiKey: process.env.API_KEY_DB,
         authDomain: "mapsapi-1574360837491.firebaseapp.com",
         databaseURL: "https://mapsapi-1574360837491.firebaseio.com",
         projectId: "mapsapi-1574360837491",
