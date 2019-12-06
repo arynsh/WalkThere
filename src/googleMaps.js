@@ -1,11 +1,11 @@
 
 import loadGoogleMapsApi from 'load-google-maps-api';
-let API_KEY_MAP = process.env.API_KEY_MAP;
+// let API_KEY_MAP = process.env.API_KEY_MAP;
 
 export class Map {
 
     async getMap(latitude, longitude, list) {
-        loadGoogleMapsApi({'key': API_KEY_MAP}).then(function (googleMaps) {
+        loadGoogleMapsApi({'key': process.env.API_KEY_MAP}).then(function (googleMaps) {
             let currentMap = new googleMaps.Map(document.querySelector('.map'), {
                 center: {
                     lat: latitude,
@@ -68,7 +68,7 @@ export class Map {
                     ratingone = '<div><img style="height:30px;width:150px;" src="./img/fourandhalfstar.png"/></div>';
                 }
                 let infoForMarker = new googleMaps.InfoWindow({
-                
+
                     content:`<h4>${list[i].name}</h4> ${ratingone}`
                 });
                 marker.addListener('click',function(){

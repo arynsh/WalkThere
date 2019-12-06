@@ -1,6 +1,6 @@
-let API_KEY = process.env.API_KEY_YELP;
+// let API_KEY = process.env.API_KEY_YELP;
 import yelp from 'yelp-fusion';
-const client = yelp.client(API_KEY);
+const client = yelp.client(process.env.API_KEY_YELP);
 
 export class Attractions {
     async getAttractions(lat, lon, place) {
