@@ -103,7 +103,6 @@ $(function() {
 
         $(".addButton").click(function(event) {
           const data = list[$(event.target).parent().parent().parent().parent().attr('id')];
-          console.log($(event.target).parent().parent().parent().parent().attr("id"));
           if( auth != null ){
               placesRef.child(auth.uid)
                 .push({
@@ -133,7 +132,6 @@ $(function() {
     }
 
     function displayMap(lat, lon, list) {
-      console.log($(".map"));
       $('.map').show();
       map = new Map();
       map.getMap(lat, lon, list);
@@ -149,7 +147,7 @@ $(function() {
 
       //initialize the firebase app
     var config = {
-        apiKey: process.env.API_KEY_DB,
+        apiKey: "AIzaSyCsi7ACAdL_T2eAywfLldwSvQ1YnqCV8e0",
         authDomain: "mapsapi-1574360837491.firebaseapp.com",
         databaseURL: "https://mapsapi-1574360837491.firebaseio.com",
         projectId: "mapsapi-1574360837491",
@@ -255,7 +253,7 @@ $(function() {
     if (user) {
       auth = user;
       $('.auth').removeClass('auth-false').addClass('auth-true');
-      usersRef.child(user.uid).once('value').then(function (data) {
+      usersRef.child(user.uid).once('value').then(function () {
         if(user.displayName) {
           $('.user-info img').hide();
           $('.user-name').text(user.displayName);
@@ -279,8 +277,6 @@ $(function() {
   $("#savedPlacesList").click(function(event) {
     if ($(event.target).is(":button")) {
       let element = $(event.target).parent().parent();
-      console.log(element);
-      console.log(placesRef.child(auth.uid).child(element.attr("id")));
       element.remove();
       placesRef.child(auth.uid).child(element.attr("id")).remove();
     }

@@ -16,8 +16,6 @@ export class Attractions {
             let resultArray = [];
             await client.search(searchRequest).then(response => {
                 const results = response.jsonBody.businesses;
-                //const prettyJson = JSON.stringify(results, null, 4);
-                //console.log(prettyJson);
                 for (let i=0; i < results.length; i++) {
                     let element = results[i];
                     let currentResult = {};

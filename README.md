@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 * NodeJS
 * Go to https://opencagedata.com/api and get your own API key(API_KEY).
 * Go to https://developers.google.com/maps/documentation/javascript/get-api-key and get your own API key(API_KEY_MAP)
-* Go to https://www.yelp.com/developers/documentation/v3/authentication and get your own API key(API_KEY)
+* Go to https://www.yelp.com/developers/documentation/v3/authentication and get your own API key(API_KEY_YELP)
 
 ### Installing
 
